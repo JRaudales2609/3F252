@@ -1,0 +1,43 @@
+@startuml
+class SuperMario
+class Nivel
+class Jugador
+class PersonajeJugable
+class Enemigo
+class PowerUp
+class Objeto
+class Escenario
+class Personaje
+SuperMario*--Nivel
+SuperMario*--Jugador
+SuperMario*--Personaje
+Personaje<|-- PersonajeJugable
+Personaje <|-- Peach
+Enemigo <|-- Koopa
+Enemigo <|-- Bowser
+Enemigo <|-- BalaBill
+Enemigo <|-- PlataPiraña
+Enemigo <|-- Boo
+Enemigo <|-- Gomba
+Jugador o-- PersonajeJugable
+PersonajeJugable o-- PowerUp
+Nivel*--Enemigo
+Nivel*--Objeto
+Nivel*--Escenario
+Nivel*--Puntaje
+Nivel*--Musica
+Nivel*--Cronometro
+Nivel*--PowerUp
+Objeto <|-- Moneda
+Objeto <|-- Caparazon
+Objeto <|-- ChampiñonVida
+PowerUp <|-- Estrella
+PowerUp <|-- Hongo 
+PowerUp <|-- FlorFuego
+Escenario*--Bloques
+Escenario*--Tuberia
+Escenario*--Bandera
+Escenario*--Castillo
+PersonajeJugable*--Movimiento
+SuperMario*--Menu
+@enduml
