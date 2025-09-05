@@ -1,6 +1,57 @@
+@startuml Diagrama
+class SuperMario
+{
+-MenuPrincipal [1]
+-Niveles [*]
+-Jugador [1]
+-PuntajeTotal
+}
+
+class Nivel
+{
+-Escenario [1]
+-Enemigos [*]
+-PowerUps [*]
+-Cronometro [1]
+-PuntajeNivel
+}
+
+class Jugador
+{
+-PersonajeJugable [1]
+-PuntajeJugador
+-Vidas
+}
+
+class PersonajeJugable
+{
++Caminar(Jugador)
++Saltar(Jugador)
++Atacar(Jugador)
+}
+
+class Enemigo
+{
+-Vida (100)
+-Posicion
++Atacar(PersonajeJugable)
++Morir(PersonajeJugable)
+}
+
 class PowerUp
+{
+-Duracion(10)
++Aplicar(PersonajeJugable)
+}
+
 class Objeto
 class Escenario
+{
+-Bloques [*]
+-Tuberias [*]
+-Bandera [1]
+-Castillo [1]
+}
 class Personaje
 class Cronometro
 class Musica
@@ -25,7 +76,7 @@ class Planta
 class Peach
 class Gomba
 
-SuperMario *-- Nivel
+SuperMario "1"*--"*" Nivel
 SuperMario *-- Jugador
 SuperMario *-- Personaje
 Personaje <|-- PersonajeJugable
@@ -38,14 +89,14 @@ Enemigo <|-- Boo
 Enemigo <|-- Gomba
 Jugador o-- PersonajeJugable
 PersonajeJugable o-- PowerUp
-Nivel *-- Enemigo
-Nivel *-- Objeto
+Nivel "1"*--"*" Enemigo
+Nivel "1"*--"*" Objeto
 Nivel *-- Escenario
 Nivel *-- Puntaje
 Nivel *-- Musica
 Nivel *-- Cronometro
-Nivel *-- PowerUp
-Objeto <|-- Moneda
+Nivel "1"*-- "*" PowerUp
+Objeto "1"<|--"*" Moneda
 Objeto <|-- Caparazon
 Objeto <|-- ChampiñonVida
 PowerUp <|-- Estrella
@@ -57,3 +108,4 @@ Escenario *-- Bandera
 Escenario *-- Castillo
 PersonajeJugable *-- Movimiento
 SuperMario *-- Menu
+@enduml
