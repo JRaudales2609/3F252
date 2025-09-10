@@ -6,6 +6,7 @@ int main(int argc, char const *argv[])
     cout<<"Hola mundo"<<endl;
     Foco foco;
     foco.Encender();
+    cout << foco.LeerEstado() <<endl;
     foco.Apagar();
     cout<<"EstadoFoco:"
     <<foco.LeerEstado()
